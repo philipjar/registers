@@ -43,17 +43,17 @@ uint32_t ecx;
 uint32_t edx;
 
 static int __init reg_init(void) {
-    if (!proc_create("registers", 0666, NULL, &proc_ops)) {
-        printk(KERN_ERR "registers: can't register proc\n");
-        return -EINVAL;
-    }
+	if (!proc_create("registers", 0666, NULL, &proc_ops)) {
+		printk(KERN_ERR "registers: can't register proc\n");
+		return -EINVAL;
+	}
 	output_buffer = kmalloc(64*sizeof(char), GFP_KERNEL);
 	if (!output_buffer) {
 		printk(KERN_ERR "registers: can't allocate buffer");
 		return -ENOMEM;
 	}
 	printk(KERN_INFO "registers: successfully loaded\n");
-    return 0;
+	return 0;
 }
 
 static void __exit reg_exit(void) {
