@@ -1,0 +1,10 @@
+.*
+*~
+!.gitignore
+Module.symvers
+modules.order
+registers.ko
+registers.mod.c
+*.o
+Vagrantfile
+
