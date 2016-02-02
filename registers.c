@@ -94,7 +94,7 @@ int proc_read(struct file *file, char __user *buf, size_t size, loff_t *offset) 
 	sprintf(output_buffer, "eax: %d\nebx: %d\necx: %d\nedx: %d\n\n",
 		eax, ebx, ecx, edx);
 
-    len = strlen(output_buffer);
+	len = strlen(output_buffer);
 	copy_to_user(buf, output_buffer, len);
 	return len;
 }
