@@ -1,5 +1,5 @@
 /*	'Registers' kernel module
-    Copyright (C) 2015 Philip Lindner
+    Copyright (C) 2016 Philip Lindner
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
@@ -49,7 +49,7 @@ static int __init reg_init(void) {
 	}
 	output_buffer = kmalloc(64*sizeof(char), GFP_KERNEL);
 	if (!output_buffer) {
-		printk(KERN_ERR "registers: can't allocate buffer");
+		printk(KERN_ERR "registers: can't allocate buffer\n");
 		return -ENOMEM;
 	}
 	printk(KERN_INFO "registers: successfully loaded\n");
@@ -70,7 +70,7 @@ static void __exit reg_exit(void) {
 int circeled = 0;
 
 int proc_read(struct file *file, char __user *buf, size_t size, loff_t *offset) {
-	if (circeled) {
+ 	if (circeled) {
 		circeled = 0;
 		return 0;
 	}
