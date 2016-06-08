@@ -2,17 +2,18 @@
 registers is a simple linux kernel module (LKM) which creates /proc/registers, a 
 kernel proc file which holds the contents of eax, ebx, ecx, edx (x86 general 
 purpose registers).
+Pretty useless as they change during execution but a good way to start LKM coding and try out some inline assembler.
 
 ### Build
 
-Just run:
+Build with:
 ```shell
 make
 ```
 
 ### Usage
 
-Insert the module into the kernel:
+Insert into kernel:
 ```shell
 sudo insmod registers.ko
 ```
@@ -24,7 +25,7 @@ To view the register contents, use
 cat /proc/registers
 ```
 
-To finally unload the module, use
+To unload the module, use:
 ```shell
 sudo rmmod registers
 ```
